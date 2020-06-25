@@ -1,0 +1,36 @@
+{
+  "name": "spamblockers-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpamBlockers/api.git"
+  },
+  "author": "Andrew Lane <contact@lungers.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpamBlockers/api/issues"
+  },
+  "homepage": "https://github.com/SpamBlockers/api#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "helmet": "^3.23.2",
+    "http-errors": "^1.7.3",
+    "mongoose": "^5.9.18",
+    "morgan": "^1.10.0",
+    "uuid": "^8.1.0"
+  }
+}
