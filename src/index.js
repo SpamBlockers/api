@@ -1,3 +1,4 @@
+const cors = require(`cors`);
 const createError = require(`http-errors`);
 const dotenv = require(`dotenv`);
 const express = require(`express`);
@@ -12,9 +13,10 @@ const api = require(`./api`);
 const port = process.env.PORT || 3030;
 const app = express();
 
+app.use(cors());
+app.use(express.json());
 app.use(helmet());
 app.use(morgan(process.env.NODE_ENV === `production` ? `tiny` : `dev`));
-app.use(express.json());
 
 app.use(`/api/v1`, api);
 
