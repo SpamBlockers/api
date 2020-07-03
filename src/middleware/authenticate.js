@@ -2,7 +2,9 @@ const asyncHandler = require(`express-async-handler`);
 const createError = require(`http-errors`);
 const User = require(`../models/user`);
 
-module.exports = (permission = `user`) => {
+const { DEFAULT_API_KEY } = process.env;
+
+module.exports = (permission = `user`, allowDefault = false) => {
     if (!User.permissions.includes(permission)) {
         throw new Error(`Invalid permission: ${permission}`);
     }
@@ -18,6 +20,10 @@ module.exports = (permission = `user`) => {
         const [, key] = authorization.split(` `);
         if (!key) {
             return next(createError(401, `Unauthorized`));
+        }
+
+        if (allowDefault && DEFAULT_API_KEY && key === DEFAULT_API_KEY) {
+            return next();
         }
 
         const user = await User.findOne({ key });

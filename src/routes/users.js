@@ -60,7 +60,7 @@ router.get(
 
 router.post(
     `/`,
-    authenticate(`admin`),
+    authenticate(`admin`, true),
     asyncHandler(async (req, res, next) => {
         let body;
 
