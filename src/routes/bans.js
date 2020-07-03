@@ -40,11 +40,14 @@ router.get(
             const ban = await Ban.findOne({ userID });
 
             res.json({
-                userID: ban.userID,
-                reason: ban.reason,
-                admin: ban.admin,
-                createdAt: ban.createdAt,
-                updatedAt: ban.updatedAt,
+                ok: true,
+                result: {
+                    userID: ban.userID,
+                    reason: ban.reason,
+                    admin: ban.admin,
+                    createdAt: ban.createdAt.getTime(),
+                    updatedAt: ban.updatedAt.getTime(),
+                },
             });
         } catch (error) {
             next(createError());
@@ -88,6 +91,7 @@ router.post(
 
         res.json({
             ok: true,
+            result: null,
         });
     }),
 );

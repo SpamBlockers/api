@@ -15,16 +15,17 @@ router.get(
         try {
             const users = await User.find();
 
-            res.json(
-                users.map(user => ({
+            res.json({
+                ok: true,
+                result: users.map(user => ({
                     userID: user.userID,
                     key: user.key,
                     permission: user.permission,
                     banned: user.banned,
-                    createdAt: user.createdAt,
-                    updatedAt: user.updatedAt,
+                    createdAt: user.createdAt.getTime(),
+                    updatedAt: user.updatedAt.getTime(),
                 })),
-            );
+            });
         } catch (error) {
             next(createError());
         }
@@ -41,12 +42,15 @@ router.get(
             const user = await User.findOne({ userID });
 
             res.json({
-                userID: user.userID,
-                key: user.key,
-                permission: user.permission,
-                banned: user.banned,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
+                ok: true,
+                result: {
+                    userID: user.userID,
+                    key: user.key,
+                    permission: user.permission,
+                    banned: user.banned,
+                    createdAt: user.createdAt.getTime(),
+                    updatedAt: user.updatedAt.getTime(),
+                },
             });
         } catch (error) {
             next(createError());
@@ -85,7 +89,10 @@ router.post(
             return next(createError());
         }
 
-        res.json(newUser);
+        res.json({
+            ok: true,
+            result: newUser,
+        });
     }),
 );
 
