@@ -76,8 +76,8 @@
  * @apiSuccess {Number} result.userID The users Telegram ID
  * @apiSuccess {String} result.key The API key of the user
  * @apiSuccess {String = admin, user} result.permission The permission level of the user
- * @apiSuccess {Number} result.createdAt The date the user was first banned
  * @apiSuccess {Boolean} result.banned Whether the user is banned or not (not implemented yet)
+ * @apiSuccess {Number} result.createdAt The date the user was first banned
  * @apiSuccess {Number} result.updatedAt The date when the users ban was updated
  *
  * @apiSuccessExample Success response:

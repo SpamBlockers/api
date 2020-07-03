@@ -91,7 +91,14 @@ router.post(
 
         res.json({
             ok: true,
-            result: newUser,
+            result: {
+                userID: newUser.userID,
+                key: newUser.key,
+                permission: newUser.permission,
+                banned: newUser.banned,
+                createdAt: newUser.createdAt.getTime(),
+                updatedAt: newUser.updatedAt.getTime(),
+            },
         });
     }),
 );
