@@ -5,6 +5,7 @@ const express = require(`express`);
 const helmet = require(`helmet`);
 const mongoose = require(`mongoose`);
 const morgan = require(`morgan`);
+const path = require(`path`);
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan(process.env.NODE_ENV === `production` ? `tiny` : `dev`));
 
+app.use(express.static(path.join(__dirname, `../docs-build`)));
 app.use(`/api/v1`, api);
 
 app.use((req, res, next) => {

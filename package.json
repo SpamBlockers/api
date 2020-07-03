@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
+    "docs": "apidoc -i docs/ -o docs-build/",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/"
   },
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/SpamBlockers/api#readme",
   "devDependencies": {
+    "apidoc": "^0.23.0",
     "eslint": "^7.2.0",
     "nodemon": "^2.0.4"
   },

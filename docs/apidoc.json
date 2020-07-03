@@ -1,0 +1,9 @@
+{
+    "name": "SpamBlockers API Docs",
+    "version": "1.0.0",
+    "url": "https://spamblockers.lungers.com/api/v1",
+    "title": "SpamBlockers API Docs - v1.0.0",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
