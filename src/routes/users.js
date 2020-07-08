@@ -34,7 +34,7 @@ router.get(
 
 router.get(
     `/:id(\\d+)`,
-    authenticate(`admin`),
+    authenticate(`admin`, true),
     asyncHandler(async (req, res, next) => {
         const userID = Number(req.params.id);
 
