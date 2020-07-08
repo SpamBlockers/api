@@ -91,7 +91,13 @@ router.post(
 
         res.json({
             ok: true,
-            result: null,
+            result: {
+                userID: ban.userID,
+                reason: ban.reason,
+                admin: ban.admin,
+                createdAt: ban.createdAt.getTime(),
+                updatedAt: ban.updatedAt.getTime(),
+            },
         });
     }),
 );

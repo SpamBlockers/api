@@ -60,7 +60,13 @@
  * @apiSuccessExample Success response:
  * {
  *     "ok": true,
- *     "result": null
+ *     "result": {
+ *         "userID": 777000,
+ *         "reason": "Banning users for no reason",
+ *         "admin": "5ee6d7c714c6ff96a6447a95",
+ *         "createdAt": 1593474414692,
+ *         "updatedAt": 1593474414692
+ *     }
  * }
  *
  * @apiUse APIKeyError
