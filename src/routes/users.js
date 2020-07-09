@@ -12,8 +12,11 @@ router.get(
     `/`,
     authenticate(`admin`),
     asyncHandler(async (req, res, next) => {
+        const { permission } = req.query;
+        const query = User.permissions.includes(permission) ? { permission } : {};
+
         try {
-            const users = await User.find();
+            const users = await User.find(query);
 
             res.json({
                 ok: true,
