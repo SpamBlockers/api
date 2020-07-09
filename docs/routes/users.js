@@ -38,7 +38,7 @@
  * @apiGroup Users
  *
  * @apiSuccess {Boolean} ok <code>true</code>
- * @apiSuccess {Object} result The user object
+ * @apiSuccess {Object} [result] The user object
  * @apiSuccess {Number} result.userID The users Telegram ID
  * @apiSuccess {String} result.key The API key of the user
  * @apiSuccess {String = admin, user} result.permission The permission level of the user

@@ -23,7 +23,7 @@
  * @apiGroup Bans
  *
  * @apiSuccess {Boolean} ok <code>true</code>
- * @apiSuccess {Object} result The ban object
+ * @apiSuccess {Object} [result] The ban object
  * @apiSuccess {Number} result.userID The users Telegram ID
  * @apiSuccess {String} result.reason The reason the user was banned
  * @apiSuccess {Number} result.admin The internal ID of the admin who banned the user

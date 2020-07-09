@@ -35,23 +35,28 @@ router.get(
     authenticate(`user`),
     asyncHandler(async (req, res, next) => {
         const userID = Number(req.params.id);
+        let result = null;
 
         try {
             const ban = await Ban.findOne({ userID });
 
-            res.json({
-                ok: true,
-                result: {
+            if (ban) {
+                result = {
                     userID: ban.userID,
                     reason: ban.reason,
                     admin: ban.admin,
                     createdAt: ban.createdAt.getTime(),
                     updatedAt: ban.updatedAt.getTime(),
-                },
-            });
+                };
+            }
         } catch (error) {
-            next(createError());
+            return next(createError());
         }
+
+        res.json({
+            ok: true,
+            result,
+        });
     }),
 );
 

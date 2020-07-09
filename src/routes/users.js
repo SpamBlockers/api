@@ -40,24 +40,29 @@ router.get(
     authenticate(`admin`, true),
     asyncHandler(async (req, res, next) => {
         const userID = Number(req.params.id);
+        let result = null;
 
         try {
             const user = await User.findOne({ userID });
 
-            res.json({
-                ok: true,
-                result: {
+            if (user) {
+                result = {
                     userID: user.userID,
                     key: user.key,
                     permission: user.permission,
                     banned: user.banned,
                     createdAt: user.createdAt.getTime(),
                     updatedAt: user.updatedAt.getTime(),
-                },
-            });
+                };
+            }
         } catch (error) {
-            next(createError());
+            return next(createError());
         }
+
+        res.json({
+            ok: true,
+            result,
+        });
     }),
 );
 
